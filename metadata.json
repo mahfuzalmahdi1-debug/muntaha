@@ -1,0 +1,6 @@
+{
+  "name": "Frame & Pixel Portfolio",
+  "description": "Professional video editing and graphic design portfolio with interactive carousels, video player, and project manager.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
