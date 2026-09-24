@@ -91,6 +91,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ language, onOpenCont
                   alt="Mahfuz Al Mahdi - Video Editor & Graphic Designer"
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute bottom-1 right-1 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-zinc-950" title="Available for freelance" />
               </div>

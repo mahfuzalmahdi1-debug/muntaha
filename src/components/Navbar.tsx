@@ -17,6 +17,20 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const handleNavClick = (e: React.MouseEvent, sectionId: string) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const handleLogoClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const t = {
     bn: {
       brand: 'মাহফুজ আল মাহদী',
@@ -48,8 +62,9 @@ export const Navbar: React.FC<NavbarProps> = ({
         
         {/* Zone 1: Single text element Brand Zone */}
         <a 
-          href="#" 
-          className="flex items-center gap-3 group text-left"
+          href="#"
+          onClick={handleLogoClick}
+          className="flex items-center gap-3 group text-left cursor-pointer"
           title="Home"
         >
           <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-amber-400/40 bg-zinc-900 shrink-0 group-hover:border-amber-400 transition-colors shadow-sm">
@@ -58,6 +73,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               alt="Mahfuz Al Mahdi"
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
+              loading="eager"
             />
           </div>
           <div>
@@ -72,21 +88,41 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* Zone 2: Clean text navigation links */}
         <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-zinc-300">
-          <a href="#video-showcase" className="hover:text-amber-400 transition-colors flex items-center gap-1.5">
+          <a 
+            href="#video-showcase" 
+            onClick={(e) => handleNavClick(e, 'video-showcase')}
+            className="hover:text-amber-400 transition-colors flex items-center gap-1.5 cursor-pointer"
+          >
             <Video className="w-3.5 h-3.5 text-amber-400/80" />
             <span>{t.videoNav}</span>
           </a>
-          <a href="#graphic-showcase" className="hover:text-amber-400 transition-colors flex items-center gap-1.5">
+          <a 
+            href="#graphic-showcase" 
+            onClick={(e) => handleNavClick(e, 'graphic-showcase')}
+            className="hover:text-amber-400 transition-colors flex items-center gap-1.5 cursor-pointer"
+          >
             <Palette className="w-3.5 h-3.5 text-amber-400/80" />
             <span>{t.graphicNav}</span>
           </a>
-          <a href="#workflow-section" className="hover:text-amber-400 transition-colors">
+          <a 
+            href="#workflow-section" 
+            onClick={(e) => handleNavClick(e, 'workflow-section')}
+            className="hover:text-amber-400 transition-colors cursor-pointer"
+          >
             {t.processNav}
           </a>
-          <a href="#about-section" className="hover:text-amber-400 transition-colors">
+          <a 
+            href="#about-section" 
+            onClick={(e) => handleNavClick(e, 'about-section')}
+            className="hover:text-amber-400 transition-colors cursor-pointer"
+          >
             {t.aboutNav}
           </a>
-          <a href="#contact-section" className="hover:text-amber-400 transition-colors">
+          <a 
+            href="#contact-section" 
+            onClick={(e) => handleNavClick(e, 'contact-section')}
+            className="hover:text-amber-400 transition-colors cursor-pointer"
+          >
             {t.contactNav}
           </a>
         </nav>
@@ -147,38 +183,38 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="md:hidden border-t border-white/10 bg-[#0C0E14] px-4 py-4 space-y-3">
           <a
             href="#video-showcase"
-            onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center gap-2 text-sm text-zinc-300 hover:text-amber-400 py-1"
+            onClick={(e) => handleNavClick(e, 'video-showcase')}
+            className="flex items-center gap-2 text-sm text-zinc-300 hover:text-amber-400 py-1 cursor-pointer"
           >
             <Video className="w-4 h-4 text-amber-400" />
             <span>{t.videoNav}</span>
           </a>
           <a
             href="#graphic-showcase"
-            onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center gap-2 text-sm text-zinc-300 hover:text-amber-400 py-1"
+            onClick={(e) => handleNavClick(e, 'graphic-showcase')}
+            className="flex items-center gap-2 text-sm text-zinc-300 hover:text-amber-400 py-1 cursor-pointer"
           >
             <Palette className="w-4 h-4 text-amber-400" />
             <span>{t.graphicNav}</span>
           </a>
           <a
             href="#workflow-section"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block text-sm text-zinc-300 hover:text-amber-400 py-1"
+            onClick={(e) => handleNavClick(e, 'workflow-section')}
+            className="block text-sm text-zinc-300 hover:text-amber-400 py-1 cursor-pointer"
           >
             {t.processNav}
           </a>
           <a
             href="#about-section"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block text-sm text-zinc-300 hover:text-amber-400 py-1"
+            onClick={(e) => handleNavClick(e, 'about-section')}
+            className="block text-sm text-zinc-300 hover:text-amber-400 py-1 cursor-pointer"
           >
             {t.aboutNav}
           </a>
           <a
             href="#contact-section"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block text-sm text-zinc-300 hover:text-amber-400 py-1"
+            onClick={(e) => handleNavClick(e, 'contact-section')}
+            className="block text-sm text-zinc-300 hover:text-amber-400 py-1 cursor-pointer"
           >
             {t.contactNav}
           </a>

@@ -125,9 +125,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ language }) => {
     if (!name || !email || !message) return;
 
     const { mailtoUrl } = generateMailUrls();
-    // Automated client-side email trigger
+    // Automated client-side email trigger without page navigation or reload
     try {
-      window.location.href = mailtoUrl;
+      const link = document.createElement('a');
+      link.href = mailtoUrl;
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     } catch (err) {
       console.warn('Mailto triggered', err);
     }

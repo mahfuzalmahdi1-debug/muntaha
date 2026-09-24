@@ -187,6 +187,8 @@ export const VideoCarousel: React.FC<VideoCarouselProps> = ({
                       alt={displayTitle}
                       className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                       referrerPolicy="no-referrer"
+                      loading="lazy"
+                      decoding="async"
                     />
 
                     {/* Gradient Scrim */}

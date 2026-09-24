@@ -12,6 +12,11 @@ export const Footer: React.FC<FooterProps> = ({ language, onOpenGitHubGuide }) =
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const scrollTo = (e: React.MouseEvent, id: string) => {
+    e.preventDefault();
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <footer className="py-12 border-t border-white/10 bg-[#06070A] text-zinc-400 text-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
@@ -28,17 +33,33 @@ export const Footer: React.FC<FooterProps> = ({ language, onOpenGitHubGuide }) =
         </div>
 
         {/* Links */}
-        <div className="flex items-center gap-6 text-zinc-400">
-          <a href="#video-showcase" className="hover:text-amber-400 transition-colors">
+        <div className="flex flex-wrap items-center justify-center gap-6 text-zinc-400">
+          <a 
+            href="#video-showcase" 
+            onClick={(e) => scrollTo(e, 'video-showcase')}
+            className="hover:text-amber-400 transition-colors cursor-pointer"
+          >
             {language === 'bn' ? 'ভিডিও এডিটিং' : 'Video Editing'}
           </a>
-          <a href="#graphic-showcase" className="hover:text-amber-400 transition-colors">
+          <a 
+            href="#graphic-showcase" 
+            onClick={(e) => scrollTo(e, 'graphic-showcase')}
+            className="hover:text-amber-400 transition-colors cursor-pointer"
+          >
             {language === 'bn' ? 'গ্রাফিক্স ডিজাইন' : 'Graphic Design'}
           </a>
-          <a href="#workflow-section" className="hover:text-amber-400 transition-colors">
+          <a 
+            href="#workflow-section" 
+            onClick={(e) => scrollTo(e, 'workflow-section')}
+            className="hover:text-amber-400 transition-colors cursor-pointer"
+          >
             {language === 'bn' ? 'কাজের ধাপ' : 'Workflow'}
           </a>
-          <a href="#about-section" className="hover:text-amber-400 transition-colors">
+          <a 
+            href="#about-section" 
+            onClick={(e) => scrollTo(e, 'about-section')}
+            className="hover:text-amber-400 transition-colors cursor-pointer"
+          >
             {language === 'bn' ? 'আমার সম্পর্কে' : 'About Me'}
           </a>
           <a

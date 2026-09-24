@@ -102,13 +102,14 @@ export const Hero: React.FC<HeroProps> = ({
                 <span>{t.watchReel}</span>
               </button>
 
-              <a
-                href="#video-showcase"
+              <button
+                type="button"
+                onClick={() => document.getElementById('video-showcase')?.scrollIntoView({ behavior: 'smooth' })}
                 className="flex items-center gap-2 px-5 py-3 rounded-xl bg-zinc-900/90 hover:bg-zinc-800 border border-zinc-700/80 hover:border-zinc-500 text-white font-medium text-sm transition-all cursor-pointer"
               >
                 <span>{t.exploreWork}</span>
                 <ArrowRight className="w-4 h-4 text-zinc-400" />
-              </a>
+              </button>
 
               <button
                 onClick={onOpenUpload}
@@ -161,6 +162,10 @@ export const Hero: React.FC<HeroProps> = ({
                   alt="Mahfuz Al Mahdi - Video Editor & Graphic Designer"
                   className="w-full h-full object-cover object-top"
                   referrerPolicy="no-referrer"
+                  loading="eager"
+                  decoding="async"
+                  width={600}
+                  height={800}
                 />
               </div>
 
